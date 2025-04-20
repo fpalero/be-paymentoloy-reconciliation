@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.paymentology.reconciliation.entities.Transaction;
+import com.paymentology.reconciliation.exceptions.ReconciliationException;
 
 public abstract class AbstractReconciliaitionService {
 
@@ -48,7 +49,7 @@ public abstract class AbstractReconciliaitionService {
             reader.readLine();
             transactions = reader.lines().collect(Collectors.toList());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new ReconciliationException("Wrong file format, it is not possible to read the file " + file.getOriginalFilename(), e);
         }
 
         return transactions;
