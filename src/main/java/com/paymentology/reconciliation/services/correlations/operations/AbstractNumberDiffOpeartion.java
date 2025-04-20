@@ -2,8 +2,8 @@ package com.paymentology.reconciliation.services.correlations.operations;
 
 public abstract class AbstractNumberDiffOpeartion extends AbstractDiffOpeartion<Float> {
 
-    public AbstractNumberDiffOpeartion() {
-        super((a, b) -> Math.min(1, Math.abs(a-b) / Math.max(Math.abs(a), Math.abs(b))));
+    public AbstractNumberDiffOpeartion(float weight) {
+        super((a, b) -> Math.min(1, Math.abs(a-b) / Math.max(Math.abs(a), Math.abs(b))), weight);
     }
 
     /**

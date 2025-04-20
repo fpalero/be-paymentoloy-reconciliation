@@ -9,9 +9,15 @@ import org.springframework.stereotype.Service;
 import com.paymentology.reconciliation.entities.Transaction;
 
 @Service
-public class TransactionDateCorrelation implements CorrelationOperation {
+public class TransactionDateCorrelation extends AbstractCorrelationOperation {
     private final static float DAY_MILLIS = TimeUnit.DAYS.toMillis(1);
 
+    /**
+     * Constructor for the TransactionDateCorrelation class.
+     */
+    public TransactionDateCorrelation() {
+        super(0.15f);
+    }
     /**
      * Calculates the correlation between the transaction dates of two transactions.
      * If the difference exceeds one day, the correlation is set to 1 (low
@@ -22,7 +28,7 @@ public class TransactionDateCorrelation implements CorrelationOperation {
      * @return A float value between 0 and 1 representing the correlation.
      */
     @Override
-    public float calculate(Transaction a, Transaction b) {
+    public float correlation(Transaction a, Transaction b) {
         LocalDateTime dateA = a.getTransactionDate();
         LocalDateTime dateB = b.getTransactionDate();
         long millisDateA = dateA.atZone(ZoneOffset.UTC).toInstant().toEpochMilli();

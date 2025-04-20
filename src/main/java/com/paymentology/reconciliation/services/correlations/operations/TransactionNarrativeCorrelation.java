@@ -9,10 +9,18 @@ import com.paymentology.reconciliation.entities.Transaction;
  * transactions.
  */
 @Service
-public class TransactionNarrativeCorrelation extends AbstractStringDiffOpeartion implements CorrelationOperation {
+public class TransactionNarrativeCorrelation extends AbstractStringDiffOpeartion {
+    
+    /**
+     * Constructor for the TransactionNarrativeCorrelation class.
+     */
+    public TransactionNarrativeCorrelation() {
+        super(0.15f);
+    }
+
 
     @Override
-    public float calculate(Transaction a, Transaction b) {
+    public float correlation(Transaction a, Transaction b) {
         return this.correlation(a.getTransactionNarrative(), b.getTransactionNarrative());
     }
 

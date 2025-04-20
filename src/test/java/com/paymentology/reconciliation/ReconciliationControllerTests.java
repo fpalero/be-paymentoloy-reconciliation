@@ -220,10 +220,10 @@ public class ReconciliationControllerTests {
 
     public List<Transaction> expectedTransactionList() {
         Transaction tb = getTransactionB();
-        tb.setCorrelation(0.4384939f);
+        tb.setCorrelation(0.3145896f);
 
         Transaction tc =getTransactionC();
-        tc.setCorrelation(0.4739974f);
+        tc.setCorrelation(0.5010092f);
         
         List<Transaction> tlist = new ArrayList<>();
         tlist.add(tb);

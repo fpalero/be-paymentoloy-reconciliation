@@ -9,11 +9,12 @@ package com.paymentology.reconciliation.services.correlations.operations;
 
 import java.util.function.BiFunction;
 
-public abstract class AbstractDiffOpeartion<T> {
+public abstract class AbstractDiffOpeartion<T> extends AbstractCorrelationOperation {
 
     private final BiFunction<T,T, Float> correlationfunc;
 
-    public AbstractDiffOpeartion(BiFunction<T,T, Float> correlationfunc) {
+    public AbstractDiffOpeartion(BiFunction<T,T, Float> correlationfunc, float weight) {
+        super(weight);
         this.correlationfunc = correlationfunc;
     }
 

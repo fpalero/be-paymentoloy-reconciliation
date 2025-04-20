@@ -115,10 +115,10 @@ public class CorrelationServiceTest {
 
     public List<Transaction> expectedTransactionList() {
         Transaction tb = getTransactionB();
-        tb.setCorrelation(0.39065588f);
+        tb.setCorrelation(0.3157823f);
 
         Transaction tc =getTransactionC();
-        tc.setCorrelation(0.42599538f);
+        tc.setCorrelation(0.5073061f);
         
         List<Transaction> tlist = new ArrayList<>();
         tlist.add(tb);

@@ -38,8 +38,6 @@ public class CalculateCorrelation {
         // Calculate the sum of correlation values from all operations.
         Float correlation = operations.stream().map(operation -> operation.calculate(ta, tb)).reduce(0f, (a, b) -> a + b);
 
-        // Compute the average correlation by dividing the total sum by the number of operations.
-        // This ensures the result is normalized to a value between 0 and 1.
-        return correlation/operations.size();
+        return correlation;
     }
 }
